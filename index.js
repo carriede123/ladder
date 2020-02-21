@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //this sends the html file to the web page using the root directory
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/ladderCalculator.html")
+  res.sendFile(__dirname + "/index.html")
 });
 
 // this gets the response from the values in the web page
@@ -27,7 +27,7 @@ app.post("/", function(req, res){
 //this gets the response from the web page to this placeholder
 
 // this code is only invoked on the path /ladderCalculator
-app.get("/", function(req, res){
+app.get("/ladderCalculator", function(req, res){
   res.sendFile(__dirname + "/ladderCalculator.html");
 });
 
@@ -42,7 +42,7 @@ app.post("/ladderCalculator", function(req, res){
   var length = Math.sqrt(Math.pow (depth,2) + Math.pow (height,2));
 
 //display the result in 2 decimal places
-res.send("The length of your ladder is " + length.toFixed(2));
+res.send("The length of your ladder is " + length.toFixed(0));
 
 })
 
